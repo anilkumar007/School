@@ -1,1 +1,46 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content" persistent="true" (ionOpen)="menuOpened()" (ionClose)="menuClosed()">
+  <ion-toolbar>
+    <ion-title>Settings </ion-title>
+  </ion-toolbar>
+  <ion-content>
+    <ion-list>
+      <ion-list-header>Navigate</ion-list-header>
+      <button menuClose ion-item >
+        Home
+      </button>
+      <button menuClose ion-item (click)="profile()">
+        <i class="icon ion-android-person"></i>
+         &nbsp;My Profile
+      </button>
+      <button menuClose ion-item (click)="checkoutaddress()">
+        <i class="icon ion-bag"></i>
+        &nbsp; Delivery Addresses
+      </button>
+      <button menuClose ion-item (click)="myorders()">
+        <i class="icon ion-ios-filing"></i>
+        &nbsp; My Orders
+      </button>
+      <button menuClose ion-item (click)="legalpolicies()">
+        <i class="icon ion-document"></i>
+        &nbsp; Legals (Policies)
+      </button>
+      <button menuClose ion-item (click)="helpandsupport()">
+        <i class="icon ion-help"></i>
+        &nbsp; Help & Support
+      </button>
+      <button menuClose ion-item (click)="contactus()">
+        <i class="icon ion-ios-contact"></i>
+        &nbsp; Contact Us
+      </button>
+      <button menuClose ion-item (click)="changepassword()">
+        <i class="icon ion-lock-combination"></i>
+        &nbsp; Change Password
+      </button>
+      <button menuClose ion-item>
+        <i class="icon ion-log-out"></i>
+        &nbsp; Logout
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

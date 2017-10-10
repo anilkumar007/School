@@ -1,9 +1,17 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar hideBackButton>
+      <img src="assets/images/header.png">
+    <button ion-button menuToggle icon-only left>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end class="HeaderEndBut">
+      <button (click)="likeme()" ion-button clear icon-only>
+        <ion-icon name="md-cart"></ion-icon>
+        <span color="danger" class="adjustitemaddedspan">{{itemsadded}}</span>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>

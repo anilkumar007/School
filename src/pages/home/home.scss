@@ -1,3 +1,15 @@
 page-home {
-
+  .HeaderEndBut button {
+    padding: 5px 5px 0px 0px !important;
+  }
+  .adjustitemaddedspan{
+    position:absolute !important;
+    font-weight:bold !important;
+    padding-left:5px !important;
+    padding-right:5px !important;
+    left:9px !important;
+    font-size:14px !important;
+    color:red;
+    margin-top:-10px;
+  }
 }

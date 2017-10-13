@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav, IonicApp } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LoginPage } from '../pages/login/login';
+import { MyProfilePage } from '../pages/my-profile/my-profile';
+import { StudentprofilePage } from '../pages/studentprofile/studentprofile';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
+  @ViewChild(Nav) nav: Nav;
   rootPage:any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private ionicApp: IonicApp) {
@@ -33,5 +36,11 @@ export class MyApp {
   menuOpened() {
     console.warn('menu opend');
   };
+  profile() {
+    this.nav.push(MyProfilePage);
+  };
+  studentProfile() {
+    this.nav.push(StudentprofilePage);
+  }
 }
 

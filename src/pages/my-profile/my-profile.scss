@@ -1,0 +1,34 @@
+page-my-profile {
+
+  ion-avatar img{
+    width: 50px !important;
+    height: 50px !important;
+    border: 1px solid black;
+  }
+
+  .rotateIcon {
+    transform: rotate(254deg);
+    border: 1px solid black;
+    border-radius: 50%;
+    font-size: 22px;
+    padding-left: 0px;
+  }
+
+  .borderIcon {
+    border: 1px solid black;
+    border-radius: 48%;
+    font-size: 23px;
+  }
+
+  .attherateIcon{
+    border: 1px solid black;
+    border-radius: 50%;
+    font-size: 19px;
+    padding: 5px;
+  }
+
+  ion-card-header{
+    color: rgba(4, 166, 243, 0.97) !important;
+  }
+
+}

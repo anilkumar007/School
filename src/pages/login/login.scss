@@ -1,5 +1,15 @@
 page-login {
 
+ion-content{ 
+  background-image: url('../assets/images/background.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: auto;
+  z-index: 2;
+  position: relative !important;
+}
+
 .headerTop {
   margin-top: $item-ios-padding-top;
 }
@@ -16,6 +26,12 @@ page-login {
 
 .yellowButton {
   background-color: yellow;
+  color: black;
+}
+
+.backgroundGreen {
+  background: darkgreen;
+  padding: 41px 20px 10px 20px;
 }
 
 }

@@ -12,6 +12,8 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 import { SignupPage } from '../pages/signup/signup';
+import { MyProfilePage } from '../pages/my-profile/my-profile';
+import { StudentprofilePage } from '../pages/studentprofile/studentprofile';
 
 
 
@@ -21,7 +23,9 @@ import { SignupPage } from '../pages/signup/signup';
     HomePage,
     LoginPage,
     ForgotPasswordPage,
-    SignupPage
+    SignupPage,
+    MyProfilePage,
+    StudentprofilePage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ import { SignupPage } from '../pages/signup/signup';
     HomePage,
     LoginPage,
     ForgotPasswordPage,
-    SignupPage
+    SignupPage,
+    MyProfilePage,
+    StudentprofilePage
   ],
   providers: [
     StatusBar,

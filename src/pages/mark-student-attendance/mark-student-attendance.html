@@ -1,0 +1,48 @@
+<!--
+  Generated template for the MarkStudentAttendancePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>MarkStudentAttendance</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item detail-none no-padding class="backgroundColor">
+    <ion-row>
+      <ion-col col-2 style="white-space: normal !important;">
+        Roll No.
+      </ion-col>
+      <ion-col col-8>
+        Student Name
+      </ion-col>
+      <ion-col col-2 style="white-space: normal !important;">
+        M att.
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item detail-none no-padding class="backgroundColor" *ngFor="let item of attendanceDetails">
+  <ion-row>
+    <ion-col col-2 >
+        {{item.rollno}}
+      </ion-col>
+      <ion-col col-8>
+        {{item.name}}
+      </ion-col>
+      <ion-col col-2 style="white-space: normal !important;" [style.backgroundColor]="item.bgcolor">
+        <button ion-button (click)="changeAttendance(item)" style="background-color: transparent !important;">{{item.matt}}</button>
+      </ion-col>
+       </ion-row>
+  </ion-item>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full style="background-color: green !important;">POST ATTENDANCE</button>
+  </ion-toolbar>
+</ion-footer>

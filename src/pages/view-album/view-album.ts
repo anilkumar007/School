@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { ViewImagePage } from '../view-image/view-image';
 /**
- * Generated class for the TimetablePage page.
+ * Generated class for the MyProfilePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-timetable',
-  templateUrl: 'timetable.html',
+  selector: 'page-view-album',
+  templateUrl: 'view-album.html',
 })
-export class TimetablePage {
-
+export class ViewAlbumPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TimetablePage');
+    console.log('ionViewDidLoad PhotoGalleryPage');
   }
-
+  viewPic () {
+  	console.log('cclicked image');
+    this.navCtrl.push(ViewImagePage)
+  }
 }

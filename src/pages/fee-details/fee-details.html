@@ -1,0 +1,54 @@
+<!--
+  Generated template for the FeeDetails page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Fee Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-item>
+		<ion-label>Student</ion-label>
+		<ion-select (ngModelChange)="onStudentSelect($event)" [(ngModel)]="student">
+			<ion-option *ngFor="let item of studentList">{{item.name}}</ion-option>
+		</ion-select>
+	</ion-item>
+	<button ion-button color="danger" outline style="margin-left:auto; margin-right:auto; display:block;" >Pending Fee Amount: &#8377; {{amount}}/-</button>
+	<div *ngFor="let item of slotDetails">
+		<ion-card>
+			<ion-card-header>Slot{{item.slotNo}}({{item.slotDate}})</ion-card-header>
+			<ion-row >
+				<ion-col class="b-color">
+					<p>Debit</p>
+				</ion-col>
+				<ion-col class="b-color">
+					<p class="floatRight">{{item.debit}}</p>
+				</ion-col>
+			</ion-row>
+			<ion-row >
+				<ion-col class="b-color">
+					<p>Credit</p>
+				</ion-col>
+				<ion-col class="b-color">
+					<p class="floatRight">{{item.credit}}</p>
+				</ion-col>
+			</ion-row>
+			<ion-row >
+				<ion-col class="b-color">
+					<p>Balance</p>
+				</ion-col>
+				<ion-col class="b-color">
+					<p class="floatRight">{{item.balance}}</p>
+				</ion-col>
+			</ion-row>
+			
+		</ion-card>
+	</div>
+</ion-content>

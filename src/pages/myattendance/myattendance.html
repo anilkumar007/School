@@ -7,12 +7,40 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Myattendance</ion-title>
+    <ion-title>Attendance</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-item ion-fixed detail-none no-padding>
+    <ion-label><strong>Student</strong></ion-label>
+    <ion-select (ngModelChange)="onStudentSelect($event)" [(ngModel)]="student">
+      <ion-option *ngFor="let item of studentList">{{item.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item detail-none no-padding class="marginTop backgroundColor">
+    <ion-row>
+      <ion-col col-8>
+        Subject Name
+      </ion-col>
+      <ion-col col-4>
+        Attendance
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <div *ngFor="let item of arrayKey" style="padding-top: 15px;" padding>
+    <h3>{{item}}</h3>
+    <ion-item  detail-none no-padding *ngFor="let subItem of homeWorkData[item];  let i=index " [ngClass]="{'colorYellow': subItem.attendance == 'L', 'colorGreen' : subItem.attendance == 'P', 'colorPink' : subItem.attendance == 'A'}">
+    <ion-row>
+      <ion-col col-8>
+        <p>{{subItem.subject}}</p>
+      </ion-col>
+      <ion-col col-4>
+        <p><strong>{{subItem.attendance}}</strong></p>
+      </ion-col>
+    </ion-row>
+    </ion-item>
+  </div>
 </ion-content>

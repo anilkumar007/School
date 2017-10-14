@@ -6,7 +6,7 @@
     </button>
     <ion-buttons end class="HeaderEndBut">
       <button (click)="likeme()" ion-button clear icon-only>
-        <ion-icon name="md-cart"></ion-icon>
+        <ion-icon name="ios-notifications"></ion-icon>
         <span color="danger" class="adjustitemaddedspan">{{itemsadded}}</span>
       </button>
     </ion-buttons>
@@ -23,5 +23,17 @@
     <p>9740447518</p>
   </ion-item>
   <br>
-
+  <div *ngFor="let res of iconsDisplay; let i = index;">
+    <ion-row wrap  *ngIf="i%3==0">
+      <ion-col>
+        <img src="assets/images/{{iconsDisplay[i].name}}.png" alt="" style="width:100px;height:100px" (click)="navigatepage(iconsDisplay[i])"/>
+      </ion-col>
+      <ion-col>
+        <img src="assets/images/{{iconsDisplay[i + 1].name}}.png" alt="" style="width:100px;height:100px" (click)="navigatepage(iconsDisplay[i + 1])"/>
+      </ion-col>
+      <ion-col>
+        <img src="assets/images/{{iconsDisplay[i + 2].name}}.png" alt="" style="width:100px;height:100px" (click)="navigatepage(iconsDisplay[i + 2])"/>
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-content>

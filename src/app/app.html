@@ -24,9 +24,13 @@
         <ion-icon name="ios-paper"></ion-icon>
         &nbsp; Feedback
       </button>
-      <button menuClose ion-item (click)="helpandsupport()">
+      <!-- <button menuClose ion-item (click)="helpandsupport()">
         <ion-icon name="ios-book"></ion-icon>
         &nbsp; Library
+      </button> -->
+      <button menuClose ion-item (click)="markStudentAttendance()">
+        <ion-icon name="ios-book"></ion-icon>
+        &nbsp; Mark Student Attendance
       </button>
       <button menuClose ion-item (click)="contactus()">
         <ion-icon name="logo-designernews"></ion-icon>
@@ -36,7 +40,7 @@
         <ion-icon name="ios-cog"></ion-icon>
         &nbsp; Change Password
       </button>
-      <button menuClose ion-item>
+      <button menuClose ion-item (click)="logout()">
         <ion-icon name="md-log-out"></ion-icon>
         &nbsp; Logout
       </button>

@@ -27,12 +27,12 @@
       </ion-avatar>
       <p>{{item.name}}</p>
       <p>{{item.message}}</p>
-      <ion-icon name="md-share" item-end></ion-icon>
+      <!-- <ion-icon name="md-share" item-end></ion-icon> -->
   </ion-item>
   </div>
 </ion-content>
 <ion-footer>
-  <ion-row style="background-color: #adf;">
+  <ion-row class="yellowButton">
     <ion-col col-5>
       <span>From:</span>
       <ion-datetime displayFormat="MM-DD-YYYY" placeholder="22-3-2012" [(ngModel)]="fromDate"></ion-datetime>

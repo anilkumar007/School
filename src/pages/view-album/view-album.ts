@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import { ViewImagePage } from '../view-image/view-image';
 /**
  * Generated class for the MyProfilePage page.
@@ -14,7 +14,7 @@ import { ViewImagePage } from '../view-image/view-image';
   templateUrl: 'view-album.html',
 })
 export class ViewAlbumPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -22,6 +22,8 @@ export class ViewAlbumPage {
   }
   viewPic () {
   	console.log('cclicked image');
-    this.navCtrl.push(ViewImagePage)
+    let modal = this.modalCtrl.create(ViewImagePage);
+    modal.present();
+    // this.navCtrl.push(ViewImagePage)
   }
 }

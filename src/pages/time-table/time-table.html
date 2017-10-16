@@ -31,47 +31,57 @@
         <ion-col>Sat</ion-col>
       </ion-row>
     </ion-item>
-    <!-- <ion-grid> -->
-      <ion-row *ngFor="let row of arrayKey">
-      <!-- {{row}} -->
+      <!-- <ion-row *ngFor="let row of arrayKey">
         <div *ngFor="let subItem of timeTable[row];  let i=index">
           <ion-col col-1 no-padding >
-            <!-- <ion-item> -->
               {{subItem.subject1}}
-            <!-- </ion-item> -->
           </ion-col>
           <ion-col col-2 no-padding >
-            <!-- <ion-item> -->
               {{subItem.subject2}}
-            <!-- </ion-item> -->
           </ion-col>
           <ion-col col-2 no-padding >
-            <!-- <ion-item> -->
               {{subItem.subject3}}
-            <!-- </ion-item> -->
           </ion-col>
           <ion-col col-2 no-padding >
-            <!-- <ion-item> -->
               {{subItem.subject4}}
-            <!-- </ion-item> -->
           </ion-col>
           <ion-col col-2 no-padding >
-            <!-- <ion-item> -->
               {{subItem.subject5}}
-            <!-- </ion-item> -->
           </ion-col>
           <ion-col col-2 no-padding >
-            <!-- <ion-item> -->
               {{subItem.subject6}}
-            <!-- </ion-item> -->
           </ion-col>
           <ion-col col-1 no-padding >
-            <!-- <ion-item> -->
               {{subItem.subject7}}
-            <!-- </ion-item> -->
           </ion-col>
       </div>
-      </ion-row>
+      </ion-row> -->
       <br>
-    <!-- </ion-grid> -->
+      <div *ngFor="let row of arrayKey" style="padding-top: 15px;">
+        <ion-item  detail-none no-padding *ngFor="let subItem of timeTable[row];  let i=index ">
+        <ion-row>
+          <ion-col  no-padding style="white-space: normal !important;" [ngClass]="{'colorYellow': subItem.subject1 == 'Computers', 'colorGreen' : subItem.subject1 == 'P', 'colorPink' : subItem.subject1 == 'A'}">
+              {{subItem.subject1}}
+          </ion-col>
+          <ion-col  no-padding style="white-space: normal !important;" [ngClass]="{'colorYellow': subItem.subject2 == 'Computers', 'colorGreen' : subItem.subject2 == 'English Lab', 'colorPink' : subItem.subject2 == 'UML class'}">
+              {{subItem.subject2}}
+          </ion-col>
+          <ion-col no-padding style="white-space: normal !important;" [ngClass]="{'colorYellow': subItem.subject3 == 'Computers', 'colorGreen' : subItem.subject3 == 'English Lab', 'colorPink' : subItem.subject3 == 'UML class'}">
+              {{subItem.subject3}}
+          </ion-col>
+          <ion-col no-padding style="white-space: normal !important;" [ngClass]="{'colorYellow': subItem.subject4 == 'Computers', 'colorGreen' : subItem.subject4 == 'English Lab', 'colorPink' : subItem.subject4 == 'UML class'}">
+              {{subItem.subject4}}
+          </ion-col>
+          <ion-col no-padding style="white-space: normal !important;" [ngClass]="{'colorYellow': subItem.subject5 == 'Computers', 'colorGreen' : subItem.subject5 == 'English Lab', 'colorPink' : subItem.subject5 == 'UML class'}">
+              {{subItem.subject5}}
+          </ion-col>
+          <ion-col no-padding style="white-space: normal !important;" [ngClass]="{'colorYellow': subItem.subject6 == 'Computers', 'colorGreen' : subItem.subject6 == 'English Lab', 'colorPink' : subItem.subject6 == 'UML class'}">
+              {{subItem.subject6}}
+          </ion-col>
+          <ion-col no-padding style="white-space: normal !important;" [ngClass]="{'colorYellow': subItem.subject7 == 'Computers', 'colorGreen' : subItem.subject7 == 'English Lab', 'colorPink' : subItem.subject7 == 'UML class'}">
+              {{subItem.subject7}}
+          </ion-col>
+        </ion-row>
+        </ion-item>
+      </div>
 </ion-content>

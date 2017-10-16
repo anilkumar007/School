@@ -27,3 +27,21 @@ page-track {
 #map {
     height: 100%;
   }
+
+  ion-modal {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    margin-right: 115px;
+    padding-top: 25%;
+    padding-bottom: 25%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.button-ios .activated {
+  background-color: yellow;
+}
+.button-md:hover:not(.disable-hover) {
+  background-color: yellow;
+}

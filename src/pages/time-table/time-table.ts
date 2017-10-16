@@ -18,11 +18,11 @@ export class TimeTablePage {
   arrayKey:any = [];
   studentList:any = [{name: "one"}, {name: "two"},{name: "three"}];
   timeTable:any = {"sundayTimeTable":[{subject1: '', subject2: '', subject3: '', subject4: '', subject5: '', subject6: '', subject7: ''}],
-                   "mondayTimeTable":[{subject1: 'Computers', subject2: 'C++ Lab', subject3: 'M1 Class', subject4: 'M2 Class', subject5: 'ADB LAb', subject6: 'FLAT Class', subject7: 'Ntewtorking'}],
-                   "tuesdayTimeTable":[{subject1: 'Java', subject2: 'HTML', subject3: 'M2 class', subject4: 'DAA class', subject5: 'English Lab', subject6: 'Information Security', subject7: 'UML Class'}],
-                   "wednessdayTimeTable":[{subject1: 'C class', subject2: 'Drawing', subject3: 'Drawing Class', subject4: 'Network Lab', subject5: 'UML class', subject6: 'UML lab', subject7: 'C Lab'}],
-                   "thursdayTimeTable":[{subject1: 'Java Lab', subject2: 'Applied Physics', subject3: 'Environmental Class', subject4: 'DAA class', subject5: 'OOPS class', subject6: 'M1 class', subject7: 'Network Lab'}],
-                   "fridayTimeTable":[{subject1: 'C Lab', subject2: 'Data Networking', subject3: 'English', subject4: 'UML lab', subject5: 'OOPS class', subject6: 'M2 class', subject7: 'M2 class'}],
+                   "mondayTimeTable":[{subject1: 'Computers', subject2: '', subject3: 'M1 Class', subject4: 'M2 Class', subject5: 'ADB LAb', subject6: 'FLAT Class', subject7: ''}],
+                   "tuesdayTimeTable":[{subject1: 'Java', subject2: 'HTML', subject3: '', subject4: '', subject5: 'English Lab', subject6: 'Information Security', subject7: 'UML Class'}],
+                   "wednessdayTimeTable":[{subject1: 'C class', subject2: 'Drawing', subject3: '', subject4: '', subject5: 'UML class', subject6: 'UML lab', subject7: 'C Lab'}],
+                   "thursdayTimeTable":[{subject1: 'Java Lab', subject2: 'Applied Physics', subject3: '', subject4: 'DAA class', subject5: 'OOPS class', subject6: 'M1 class', subject7: 'Network Lab'}],
+                   "fridayTimeTable":[{subject1: 'C Lab', subject2: 'Data Networking', subject3: '', subject4: '', subject5: 'OOPS class', subject6: 'M2 class', subject7: 'M2 class'}],
                    "satdayTimeTable":[{subject1: '', subject2: '', subject3: '', subject4: '', subject5: '', subject6: '', subject7: ''}]};
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.arrayKey = Object.keys(this.timeTable);

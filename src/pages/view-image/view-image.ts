@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 // import { ImageViewerDirective } from 'ionic-img-viewer';
 /*
   Generated class for the ViewRecipt page.
@@ -13,8 +13,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'view-image.html'
 })
 export class ViewImagePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  test:any = ['assets/images/Attendance.png', "assets/images/Gallery.png", "assets/images/Library.png", "assets/images/Results.png", "assets/images/Subjects.png"]
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
 
   }
 
@@ -22,4 +22,7 @@ export class ViewImagePage {
     console.log('Hello ViewReciptPage Page');
   }
 
+  dismiss(data) {
+    this.viewCtrl.dismiss(data);
+  }
 }

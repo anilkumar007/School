@@ -1,7 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
-import {GoogleMap, GoogleMapsEvent} from '@ionic-native/google-maps';
+import { GoogleMaps, 
+         GoogleMap,
+         CameraPosition,
+         LatLng,
+         GoogleMapsEvent,
+         Marker,
+         MarkerOptions } from '@ionic-native/google-maps';
+
 import { Geolocation } from '@ionic-native/geolocation';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 /**
  * Generated class for the TrackPage page.
  *
@@ -19,69 +27,83 @@ export class TrackPage {
   map: GoogleMap;
   lat: number;
   long: number;
-  constructor(public navCtrl: NavController, public navParams: NavParams,  public platform: Platform, private geolocation: Geolocation) {
+  @ViewChild('map') mapElement: ElementRef;
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public platform: Platform, private _geoLoc: Geolocation, private _googleMaps:GoogleMaps, private launchNavigator: LaunchNavigator) {
     this.platform.ready().then(() => {
-      this.loadMap();
+      // this.loadMap();
     });
+    // this.getLocation().then( res => {
+    //   let options: LaunchNavigatorOptions = {
+    //     start: res.coords.latitude + " " + res.coords.longitude
+    //   };
+    //   this.launchNavigator.navigate('Toronto, ON', options)
+    //   .then(
+    //     success => console.log('Launched navigator'),
+    //     error => console.log('Error launching navigator', error)
+    //   );
+    // })
+    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TrackPage');
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad TrackPage');
+  //   let loc: LatLng;
+  //   this.initMap();
+    
+
+  //   //once the map is ready move
+  //   //camera into position
+  //   this.map.one(GoogleMapsEvent.MAP_READY).then(() => {
+  //       //Get User location
+  //     this.getLocation().then( res => {
+  //     //Once location is gotten, we set the location on the camera.
+  //       loc = new LatLng(res.coords.latitude, res.coords.longitude);
+  //       this.moveCamera(loc);
+
+  //       this.createMarker(loc, "Me").then((marker: Marker) => {
+  //         marker.showInfoWindow();
+  //       }).catch(err => {
+  //         console.log(err);
+  //       });
+        
+  //     }).catch( err => {
+  //       console.log(err);
+  //     });
+    
+  //   });
+  // }
+
+    //Load the map 
+  initMap(){
+    let element = this.mapElement.nativeElement;
+    this.map = this._googleMaps.create(element)
   }
 
-  loadMap(){
-    // let location = new GoogleMapsLatLng(-34.9290,138.6010);
-    this.map = new GoogleMap('map', {
-      // 'backgroundColor': 'white',
-      'controls': {
-        'compass': true,
-        'myLocationButton': true,
-        'indoorPicker': true,
-        'zoom': true
-      },
-      'gestures': {
-        'scroll': true,
-        'tilt': true,
-        'rotate': true,
-        'zoom': true
-      },
-      'camera': {
-        // 'latLng': location,
-        'tilt': 30,
-        'zoom': 15,
-        'bearing': 50
+  //Get current user location
+  //Returns promise
+  getLocation(){
+    return this._geoLoc.getCurrentPosition();
+  }
+
+
+//Moves the camera to any location
+  moveCamera(loc: LatLng){
+     let options: CameraPosition<any> = {
+        //specify center of map
+        target: loc,
+        zoom: 15,
+        tilt: 10 
       }
-    });
-    this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
-      console.log('Map is ready!');
-      // let coord = new GoogleMapsLatLng(this.lat, this.long);
-      this.geolocation.getCurrentPosition().then(pos => {
-        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-        this.lat = pos.coords.latitude;
-        this.long = pos.coords.longitude;
-        this.map.addMarker({
-            title: 'Ionic',
-            icon: 'blue',
-            animation: 'DROP',
-            position: {
-              lat: pos.coords.latitude,
-              lng: pos.coords.longitude,
-            }
-          })
-          .then(marker => {
-            marker.on(GoogleMapsEvent.MARKER_CLICK)
-              .subscribe(() => {
-                alert('clicked');
-              });
-          });
-        // this.map.setCenter(coord);
-        //this.map.animateCamera({
-        //  'target': coord,
-        //  'tilt': 60,
-        //  'zoom': 18,
-        //  'bearing': 140
-        //});
-      });
-    });
-  };
+      this.map.moveCamera(options)
+  }
+
+  //Adds a marker to the map
+  createMarker(loc: LatLng, title: string){
+    let markerOptions: MarkerOptions = {
+      position: loc,
+      title: title
+    }; 
+    
+    return  this.map.addMarker(markerOptions);
+  }
 }

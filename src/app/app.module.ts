@@ -18,6 +18,9 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { Network } from '@ionic-native/network';
 import { GoogleMaps} from '@ionic-native/google-maps';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Camera } from '@ionic-native/camera';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 //import pages here
 
@@ -40,6 +43,9 @@ import { TrackPage } from '../pages/track/track';
 import { ChangePasswordPage } from '../pages/change-password/change-password';
 import { MarkStudentAttendancePage } from '../pages/mark-student-attendance/mark-student-attendance';
 import { MessagesPage } from '../pages/messages/messages';
+import { FeedbackPage } from '../pages/feedback/feedback';
+import { AboutusPage } from '../pages/aboutus/aboutus';
+import { NewsPage } from '../pages/news/news';
 
 //plugins
 import { Toast } from '@ionic-native/toast';
@@ -70,6 +76,9 @@ import { CommonserviceProvider } from '../providers/commonservice/commonservice'
     MarkStudentAttendancePage,
     MessagesPage,
     ChangePasswordPage,
+    FeedbackPage,
+    AboutusPage,
+    NewsPage
     // KeysPipe
   ],
   imports: [
@@ -100,7 +109,10 @@ import { CommonserviceProvider } from '../providers/commonservice/commonservice'
     TrackPage,
     ChangePasswordPage,
     MarkStudentAttendancePage,
-    MessagesPage
+    MessagesPage,
+    FeedbackPage,
+    AboutusPage,
+    NewsPage
   ],
   providers: [
     StatusBar,
@@ -109,8 +121,11 @@ import { CommonserviceProvider } from '../providers/commonservice/commonservice'
     NativeStorage,
     Network,
     Geolocation,
+    Camera,
+    InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GoogleMaps,
+    LaunchNavigator,
     CommonserviceProvider
   ]
 })

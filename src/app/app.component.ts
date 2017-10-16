@@ -9,6 +9,9 @@ import { MyProfilePage } from '../pages/my-profile/my-profile';
 import { StudentprofilePage } from '../pages/studentprofile/studentprofile';
 import { ChangePasswordPage } from '../pages/change-password/change-password';
 import { MarkStudentAttendancePage } from '../pages/mark-student-attendance/mark-student-attendance';
+import { FeedbackPage } from '../pages/feedback/feedback';
+import { AboutusPage } from '../pages/aboutus/aboutus';
+import { NewsPage } from '../pages/news/news';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,6 +33,14 @@ export class MyApp {
         activePortal.dismiss();
         activePortal.onDidDismiss(() => {  });
         return false;
+      } else {
+        if (this.nav.getActive().instance.navCtrl._app._title === 'Dashboard') {
+          platform.exitApp();
+        } else {
+          if (this.nav.canGoBack()){
+            this.nav.pop();
+          }
+        }
       }
     });
   }
@@ -50,6 +61,15 @@ export class MyApp {
   }
   markStudentAttendance() {
     this.nav.push(MarkStudentAttendancePage);
+  }
+  feedBack() {
+    this.nav.push(FeedbackPage);
+  };
+  aboutUs() {
+    this.nav.push(AboutusPage);
+  }
+  news() {
+    this.nav.push(NewsPage);
   }
   logout() {
     this.nativeStorage.clear().then(data => {
